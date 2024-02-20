@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Doktor Ekle</title>
+
+</head>
+<body>
+
+	Filtreler
+	<form action="filter" method="post">
+		Isim <input type="text" name="namefilter"> Age <input
+			type="number" name="ageMin"> - <input type="number"
+			name="ageMax"> <input type="submit" value="GONDER">
+
+	</form>
+	<br>
+	<br>
+	<br>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Adi</th>
+				<th>yas</th>
+				<th>brans</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="x : ${allDoctors}">
+				<td th:text="${x.doctorID}"></td>
+				<td th:text="${x.doctorName}"></td>
+				<td th:text="${x.age}"></td>
+				<td th:text="${x.branch}" />
+				<td><a th:href="@{/deleteDoctor/{id}(id=${x.doctorID})}">Sil</a></td>
+				<td><a th:href="@{/updateDoctor/{id}(id=${x.doctorID})}">Update</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<p th:if="${isThereAnyDoctor}">Herhangi bir doktor yok.</p>
+	<br>
+	<a href="/addDoctorPage">Doktor Eklemek icin tiklayiniz.</a>
+</body>
+</html>

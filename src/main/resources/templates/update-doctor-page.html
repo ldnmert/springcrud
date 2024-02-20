@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Update Doctor</title>
+</head>
+<body>
+
+	<form th:object="${updatedDoctor}" th:action="@{/addDoctor}"
+		method="post">
+		<input type="hidden" th:field="*{doctorID}"> <input
+			type="text" th:field="*{doctorName}"><br>
+		<br> <input type="number" th:field="*{age}"><br>
+		<br> <input type="text" th:field="*{branch}"> <label
+			for="branch">Doktor Bransi</label> <select name="branch">
+			<option th:each="x : ${doctorBranches}" th:value="${x}"
+				th:text="${x}">
+		</select> <br> <input type="submit" value="Ekle">
+
+
+
+
+	</form>
+
+
+</body>
+</html>

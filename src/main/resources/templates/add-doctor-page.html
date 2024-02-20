@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form th:object="${doctorInfo}" th:action="@{/addDoctor}" method="post">
+
+		<label for="doctorName">Doktor Ismi</label> <input type="text"
+			th:field="*{doctorName}"><br>
+		<br> <label for="age">Age</label> <input type="number"
+			th:field="*{age}"><br>
+		<br>
+		<div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+		<br /> <label for="country">Sehir</label> <input type="text"
+			th:field="*{country}"><br>
+		<br> <label for="branch">Doktor Bransi</label> <select
+			name="branch">
+			<option th:each="x : ${doctorBranches}" th:value="${x}"
+				th:text="${x}">
+		</select> <input type="submit" value="Ekle">
+	</form>
+
+
+
+
+
+
+
+</body>
+</html>
+</body>
+</html>
